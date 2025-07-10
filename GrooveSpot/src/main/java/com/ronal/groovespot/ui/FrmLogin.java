@@ -114,6 +114,8 @@ public class FrmLogin extends javax.swing.JFrame {
         });
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ingresar;
     private javax.swing.JButton jButton2;

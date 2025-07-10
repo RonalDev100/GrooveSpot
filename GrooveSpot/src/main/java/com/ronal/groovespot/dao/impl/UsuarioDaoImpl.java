@@ -11,9 +11,6 @@ import java.sql.SQLException;
 public class UsuarioDaoImpl implements UsuarioDao {
 
     private final Connection conn;
-
-    
-    
     
     public UsuarioDaoImpl(Connection conn) {
         this.conn = conn;
@@ -54,5 +51,28 @@ public class UsuarioDaoImpl implements UsuarioDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        }
+
+    public Usuario obtenerPorId(int i) {
+        String sql = "SELECT * FROM Usuarios WHERE IdUsuario = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, i);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId(rs.getInt("IdUsuario"));
+                u.setNombre(rs.getString("Nombre"));
+                u.setCorreo(rs.getString("Correo"));
+                u.setContraseña(rs.getString("Contrasena"));
+                u.setTipo(rs.getString("Rol"));
+                return u;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-}
+ }
+   

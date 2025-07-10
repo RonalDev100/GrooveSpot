@@ -5,22 +5,23 @@ import java.sql.Time;
 
 public class Evento {
     private int idEvento;
-    private String nombre;
-    private String genero;
+    private String titulo;
     private java.sql.Date fecha;
-    private java.sql.Time hora;
-    private String ubicacion;
-    private int idBanda; // FK a Usuario
+    private String lugar;   // corregido: Lugar → lugar (convención Java)
+    private double precio;
+    private String imagen;
+    private int idBanda;  // FK a Usuario
 
-    // Getters, setters, constructores
+    public Evento() {
+    }
 
-    public Evento(int idEvento, String nombre, String genero, Date fecha, Time hora, String ubicacion, int idBanda) {
+    public Evento(int idEvento, String titulo, Date fecha, String lugar, double precio, String imagen, int idBanda) {
         this.idEvento = idEvento;
-        this.nombre = nombre;
-        this.genero = genero;
+        this.titulo = titulo;
         this.fecha = fecha;
-        this.hora = hora;
-        this.ubicacion = ubicacion;
+        this.lugar = lugar;
+        this.precio = precio;
+        this.imagen = imagen;
         this.idBanda = idBanda;
     }
 
@@ -32,20 +33,12 @@ public class Evento {
         this.idEvento = idEvento;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public Date getFecha() {
@@ -56,20 +49,28 @@ public class Evento {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
-        return hora;
+    public String getLugar() {
+        return lugar;
     }
 
-    public void setHora(Time hora) {
-        this.hora = hora;
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getIdBanda() {
@@ -79,7 +80,9 @@ public class Evento {
     public void setIdBanda(int idBanda) {
         this.idBanda = idBanda;
     }
+
+
     
-    
+   
     
 }
